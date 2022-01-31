@@ -47,6 +47,7 @@ function Player({ song, img }) {
   const changePlay = () => {
     const prevValue = isPlaying;
     setPlaying(!prevValue);
+
     if (prevValue) {
       Audioplayer.current.play();
       animeRef.current = requestAnimationFrame(whilePlaying);
@@ -75,10 +76,6 @@ function Player({ song, img }) {
     );
     setCurrenttime(ProgressBar.current.value);
   }
-
-  // const changePrev = ()=>{
-    
-  // }
 
   return (
     <div className="playerContainer">
