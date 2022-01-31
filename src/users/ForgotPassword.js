@@ -42,7 +42,7 @@ export function ForgotPassword() {
         console.log("onSubmit", values);
       },
     });
-  const URL = `http://localhost:8000`;
+  const URL = `https://music-player7.herokuapp.com`;
   const forgot = (values) => {
     fetch(`${URL}/users/forgotpassword`, {
       method: "POST",

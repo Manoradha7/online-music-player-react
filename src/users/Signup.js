@@ -87,7 +87,7 @@ export function Signup() {
       },
     });
   //url for backend
-  const URL = `http://localhost:8000`;
+  const URL = `https://music-player7.herokuapp.com`;
 
   const Register = async (values) => {
     await fetch(`${URL}/users/signup`, {

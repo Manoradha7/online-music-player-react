@@ -6,7 +6,7 @@ function SongsList() {
   const [Songs, setSongs] = useState();  
 
   const getSongs = () => {
-    fetch(`http://localhost:8000/songs`, { method: "GET" })
+    fetch(`https://music-player7.herokuapp.com/songs`, { method: "GET" })
       .then((songs) => songs.json())
       .then((song) => {
         console.log(song);
