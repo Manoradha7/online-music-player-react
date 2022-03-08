@@ -8,7 +8,12 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import {API_URL} from '../globalConstanat.js';
+
+
+// icons
 import { SiYoutubemusic } from "react-icons/si";
+
 
 // validate form
 const formValidationSchema = yup.object({
@@ -49,7 +54,7 @@ const formValidationSchema = yup.object({
     .required("Password is Requred"),
 });
 
-export function Signup() {
+function Signup() {
   //snack bar
   const [open, setOpen] = React.useState(false);
   const [Msg, setMsg] = React.useState("");
@@ -83,14 +88,11 @@ export function Signup() {
 
       onSubmit: (values) => {
         Register(values);
-        console.log("onSubmit", values);
       },
     });
-  //url for backend
-  const URL = `https://music-player7.herokuapp.com`;
 
   const Register = async (values) => {
-    await fetch(`${URL}/users/signup`, {
+    await fetch(`${API_URL}/users/signup`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
@@ -112,8 +114,10 @@ export function Signup() {
   return (
     <div className="background">
       <div className="signin-signup">
-        <div className="app-title">
-        <i className="logo-icon"> <SiYoutubemusic /></i>
+      <div className="app-title">
+          <i className="logo-icon">
+            <SiYoutubemusic />
+          </i>
           <h2>SHASHA</h2>
           <p>Feel The Beat</p>
         </div>
@@ -246,3 +250,5 @@ export function Signup() {
     </div>
   );
 }
+
+export { Signup };

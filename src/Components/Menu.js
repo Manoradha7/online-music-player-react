@@ -1,7 +1,14 @@
-import React,{ useEffect } from "react";
-import Typography from '@mui/material/Typography';
+import React, { useEffect } from "react";
+import Typography from "@mui/material/Typography";
+import { BsFillHouseFill, BsJournalAlbum } from "react-icons/bs";
+import { FaMicrophoneAlt} from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import {useHistory } from 'react-router-dom';
 
 function Menu({ title, MenuList }) {
+const history = useHistory();
+
+
   useEffect(() => {
     const alllist = document
       .querySelector(".menuContainer ul")
@@ -17,16 +24,30 @@ function Menu({ title, MenuList }) {
     <div className="menuContainer">
       <p className="menu-title">{title}</p>
       <ul>
-        {MenuList &&
-          MenuList.map((x) => (           
-            <li key={x.id}>
-              {/*  eslint-disable-next-line */}
-              <a href="#">
-                <i className="menu-icon">{x.icon}</i>
-                <Typography className="text">{x.name}</Typography>
-              </a>
-            </li>
-          ))}
+        <li onClick={()=>history.push("/dashboard")}>
+          <i className="menu-icon">
+            <BsFillHouseFill />
+          </i>
+          <Typography className="text" >Home</Typography>
+        </li>
+        <li>
+          <i className="menu-icon">
+          <FaRegHeart />
+          </i>
+          <Typography className="text">Favourite</Typography>
+        </li>
+        <li>
+          <i className="menu-icon">
+          <FaMicrophoneAlt />
+          </i>
+          <Typography className="text">Artist</Typography>
+        </li>
+        <li>
+          <i className="menu-icon">
+          <BsJournalAlbum />
+          </i>
+          <Typography className="text">Albums</Typography>
+        </li>
       </ul>
     </div>
   );

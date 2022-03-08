@@ -10,6 +10,7 @@ import Snackbar from "@mui/material/Snackbar";
 import * as React from "react";
 import MuiAlert from "@mui/material/Alert";
 import { SiYoutubemusic } from "react-icons/si";
+import {API_URL} from '../globalConstanat.js';
 
 // form validation using yup
 const formValidationSchema = yup.object({
@@ -58,12 +59,9 @@ export function Signin() {
       },
     });
 
-  //url for backend
-  const URL = `https://music-player7.herokuapp.com`;
-
   //fetching the details
   const Login = async (values) => {
-    await fetch(`${URL}/users/signin`, {
+    await fetch(`${API_URL}/users/signin`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {

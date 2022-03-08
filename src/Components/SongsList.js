@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FaHeadphones, FaRegClock, FaHeart, FaRegHeart } from "react-icons/fa";
+import { API_URL } from "../globalConstanat.js";
 import { Player } from "./Player.js";
 
 function SongsList() {
   const [Songs, setSongs] = useState();  
 
   const getSongs = () => {
-    fetch(`https://music-player7.herokuapp.com/songs`, { method: "GET" })
+    fetch(`${API_URL}/songs`, { method: "GET" })
       .then((songs) => songs.json())
       .then((song) => {
         console.log(song);

@@ -7,6 +7,7 @@ import * as yup from "yup";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { SiYoutubemusic } from "react-icons/si";
+import {API_URL} from '../globalConstanat.js'
 
 // validate form using yup
 const formValidationSchema = yup.object({
@@ -42,9 +43,9 @@ export function ForgotPassword() {
         console.log("onSubmit", values);
       },
     });
-  const URL = `https://music-player7.herokuapp.com`;
+
   const forgot = (values) => {
-    fetch(`${URL}/users/forgotpassword`, {
+    fetch(`${API_URL}/users/forgotpassword`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: { "Content-Type": "application/json" },

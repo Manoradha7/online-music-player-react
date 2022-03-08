@@ -27,14 +27,10 @@ function RightBar() {
             <span> Go</span>Pro
           </p>
         </i>
-
         <i>
           <FaBell />
-        </i>
-
-        
+        </i>      
       </div>
-      
     </div>
   );
 }

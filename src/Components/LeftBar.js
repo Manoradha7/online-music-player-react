@@ -2,7 +2,7 @@ import React from "react";
 import "../Styles/LeftBar.css";
 import { SiYoutubemusic } from "react-icons/si";
 import {BiSearchAlt} from 'react-icons/bi'
-import {MenuList} from './Menulist.js';
+// import {MenuList} from './Menulist.js';
 import {Menu} from './Menu.js';
 import {MenuPlaylist} from './MenuPlaylist.js'
 import Typography from '@mui/material/Typography';
@@ -18,7 +18,7 @@ function LeftBar() {
         <input type="text" placeholder="Search..."/>
         <i className="searchIcon"><BiSearchAlt /></i>
       </div>
-      <Menu title={"Menu"} MenuList={MenuList}/>
+      <Menu />
       <MenuPlaylist />
     </div>
   );
