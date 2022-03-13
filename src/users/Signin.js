@@ -77,6 +77,12 @@ export function Signin() {
           setMsg({ Message: "Invalid Credentials", status: "error" });
           setOpen(true);
         }
+        return response.json();
+      }).then((res)=>{
+        const {data:{email,username,token}} =res;
+        window.localStorage.setItem('email',email);
+        window.localStorage.setItem('username',username);
+        window.localStorage.setItem('token',token);
       })
       .catch((err) => {
         setMsg({ Message: "Error", status: "error" });

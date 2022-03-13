@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import { BsFillHouseFill, BsJournalAlbum } from "react-icons/bs";
 import { FaMicrophoneAlt} from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+// import { BiSearch } from 'react-icons/bi';
 import {useHistory } from 'react-router-dom';
 
 function Menu({ title, MenuList }) {
@@ -30,19 +31,25 @@ const history = useHistory();
           </i>
           <Typography className="text" >Home</Typography>
         </li>
-        <li>
+        {/* <li onClick={()=>history.push("/search")}>
+          <i className="menu-icon">
+          <BiSearch />
+          </i>
+          <Typography className="text">Search</Typography>
+        </li> */}
+        <li onClick={()=>history.push("/favourite")}>
           <i className="menu-icon">
           <FaRegHeart />
           </i>
           <Typography className="text">Favourite</Typography>
         </li>
-        <li>
+        <li onClick={()=>history.push("/artist")}>
           <i className="menu-icon">
           <FaMicrophoneAlt />
           </i>
           <Typography className="text">Artist</Typography>
         </li>
-        <li>
+        <li onClick={()=>history.push('/albums')}>
           <i className="menu-icon">
           <BsJournalAlbum />
           </i>

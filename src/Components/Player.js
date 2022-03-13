@@ -1,3 +1,5 @@
+import "../Styles/Player.css";
+
 import React, { useState, useRef, useEffect } from "react";
 import {
   FaBackward,
@@ -9,9 +11,10 @@ import {
   FaForward,
   FaStepForward,
 } from "react-icons/fa";
-import "../Styles/Player.css";
+// import { API_URL } from "../globalConstanat.js";
 
-function Player({ song, img }) {
+
+function Player({ song, img, Songs, setSongs }) {
   const [isfav, setFav] = useState(false);
   const [isPlaying, setPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
@@ -43,7 +46,6 @@ function Player({ song, img }) {
   const changeFav = () => {
     setFav(!isfav);
   };
-
   const changePlay = () => {
     const prevValue = isPlaying;
     setPlaying(!prevValue);
@@ -86,16 +88,16 @@ function Player({ song, img }) {
         <audio src={song} preload="medata" ref={Audioplayer} />
         <div className="top">
           <div className="left">
-            <div className="fav" onClick={() => changeFav()}>
-              {isfav ? (
-                <i>
-                  <FaHeart />
-                </i>
-              ) : (
-                <i>
-                  <FaRegHeart />
-                </i>
-              )}
+            <div className="fav" onClick={() => changeFav(song?.id)}>
+            {isfav? (
+                        <i>
+                          <FaHeart  />
+                        </i>
+                      ) : (
+                        <i>
+                          <FaRegHeart  />
+                        </i>
+                      )}
             </div>
           </div>
           <div className="middle">

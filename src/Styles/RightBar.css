@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px 0px;
+    
   }
   
   .rightBar .goPro,
@@ -76,6 +77,11 @@
     object-fit: cover;
   }
   
+  .profile{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   @media screen and (max-width: 550px) {
     .rightBar {
       min-width: 64px;

@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { FaHeadphones, FaRegClock, FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { API_URL } from "../globalConstanat.js";
-import { Player } from "./Player.js";
+// import { Player } from "./Player.js";
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 function SongsList() {
-  const [Songs, setSongs] = useState();  
+  const [Songs, setSongs] = useState();
 
   const getSongs = () => {
     fetch(`${API_URL}/songs`, { method: "GET" })
       .then((songs) => songs.json())
       .then((song) => {
-        console.log(song);
         setSongs(song);
+        // console.log(song)
       });
   };
   useEffect(getSongs, []);
-  return Songs ? <AudioList Songs={Songs} setSongs={setSongs} />:""; 
+  return Songs ? <AudioList Songs={Songs} setSongs={setSongs} /> : "";
 }
 
-function AudioList({ Songs, setSongs }) {
+function AudioList( {Songs, setSongs} ) {
   // const [Songs, setSongs] = useState([]);
-  console.log("Songs ", Songs);
   const [song, setSong] = useState(Songs[0].song);
   const [img, setImg] = useState(Songs[0].imgSrc);
 
@@ -47,18 +48,47 @@ function AudioList({ Songs, setSongs }) {
     setSong(songSrc);
     setImg(imgSrc);
   };
+
+  const likeSong = (id) => {
+    fetch(`${API_URL}/songs/liked/${id}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+        "x-auth-token": window.localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        email: window.localStorage.getItem("email"),
+      }),
+    });
+  };
+
+  const dislikeSong = (id) => {
+    fetch(`${API_URL}/songs/disliked/${id}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+        "x-auth-token": window.localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        email: window.localStorage.getItem("email"),
+      }),
+    });
+  };
+
   return (
     <div className="AudioList">
-      <h2 className="title">
+      {/* <h2 className="title">
         <span>{`${Songs.length} songs in List`}</span>
-      </h2>
-      <div className="titleBar">
-        <p className="sno">#</p>
+      </h2> */}
+      {/* <div className="titleBar">
+        <p className="sno">ID</p>
         <p className="s-title">Song</p>
         <p className="a-title">Artist</p>
         <p className="p-tittle">Playing</p>
         <p className="d-tittle">Duration</p>
-      </div>
+      </div> */}
       <div className="SongsContainer">
         {Songs &&
           Songs.map((songs, index) => (
@@ -67,40 +97,40 @@ function AudioList({ Songs, setSongs }) {
               key={songs?.id}
               onClick={() => setMainSong(songs.song, songs.imgSrc)}
             >
-              <div className="songsCount">{`${index + 1}`}</div>
+              {/* <div className="songsCount">{`${index + 1}`}</div> */}
               <div className="song">
                 <div className="imgBox">
                   <img src={songs.imgSrc} alt=""></img>
                 </div>
                 <div className="section">
                   <p className="songName">
-                    {songs.songName}
+                    {songs.songName}<br/>
                     <span className="artistName">{songs.artist}</span>
                   </p>
                   <div className="hits">
-                    <p className="hit">
+                    {/* <p className="hit">
                       <i>
                         <FaHeadphones />
                       </i>
-                     {songs.playing}
-                    </p>
-                    <p className="duration">
+                      {songs.playing}
+                    </p> */}
+                    {/* <p className="duration">
                       <i>
                         <FaRegClock />
                       </i>
-                     {songs.duration}
-                    </p>
+                      {songs.duration}
+                    </p> */}
                     <div
                       className="favourite"
                       onClick={() => changeFavourite(songs?.id)}
                     >
                       {songs?.favourite ? (
                         <i>
-                          <FaHeart />
+                          <FaHeart onClick={() => dislikeSong(songs?._id)} />
                         </i>
                       ) : (
                         <i>
-                          <FaRegHeart />
+                          <FaRegHeart onClick={() => likeSong(songs?._id)} />
                         </i>
                       )}
                     </div>
@@ -110,7 +140,17 @@ function AudioList({ Songs, setSongs }) {
             </div>
           ))}
       </div>
-      <Player song={song} img={img} />
+      {/* <Player song={song} img={img} Songs={Songs} setSongs={setSongs}/> */}
+      <div className="player">
+      <div className="songImg">
+        <img src={img} alt="" />
+      </div>
+      <AudioPlayer
+    src={song}
+    onPlay={e => console.log("onPlay")}
+    className="audioplayer"
+  />
+      </div>
     </div>
   );
 }

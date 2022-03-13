@@ -218,6 +218,7 @@ function Signup() {
             value="signin"
             className="btn"
             variant="contained"
+            sx={{borderRadius:"15px"}}
           >
             <PersonAddAltIcon /> Sign Up
           </Button>
