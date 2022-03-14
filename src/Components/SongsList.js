@@ -3,7 +3,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { API_URL } from "../globalConstanat.js";
 // import { Player } from "./Player.js";
 import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+import '../Styles/MusicPlayer.css';
 
 function SongsList() {
   const [Songs, setSongs] = useState();
@@ -79,16 +79,7 @@ function AudioList( {Songs, setSongs} ) {
 
   return (
     <div className="AudioList">
-      {/* <h2 className="title">
-        <span>{`${Songs.length} songs in List`}</span>
-      </h2> */}
-      {/* <div className="titleBar">
-        <p className="sno">ID</p>
-        <p className="s-title">Song</p>
-        <p className="a-title">Artist</p>
-        <p className="p-tittle">Playing</p>
-        <p className="d-tittle">Duration</p>
-      </div> */}
+      
       <div className="SongsContainer">
         {Songs &&
           Songs.map((songs, index) => (

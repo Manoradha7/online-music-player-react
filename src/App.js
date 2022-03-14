@@ -6,7 +6,6 @@ import {useHistory} from 'react-router-dom';
 import "./App.css";
 import { LeftBar } from "./Components/LeftBar";
 import { MainBar } from "./Components/MainBar";
-import { RightBar } from "./Components/RightBar";
 import {AddSong} from "./Components/AddSong"
 import { ForgotPassword } from "./users/ForgotPassword";
 import { Message } from "./users/Message";
@@ -25,7 +24,6 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <RightBar />
         <Container />
       </div>
     </div>
@@ -92,6 +90,7 @@ function Container() {
         </Route>
       </Switch>
       </context.Provider>
+      
     </div>
   );
 }

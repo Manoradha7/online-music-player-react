@@ -1,16 +1,18 @@
 import "../Styles/Albums.css";
 
-import { LeftBar } from "./LeftBar";
+import {RightBar } from "./RightBar";
+import {LeftBar } from "./LeftBar";
 import React, { useState, useEffect } from "react";
 import { API_URL } from "../globalConstanat.js";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+import "../Styles/MusicPlayer.css";
 
 export function Albums() {
   return (
     <div className="albumList">
+      <RightBar/>
       <LeftBar />
       <SongsList />
     </div>

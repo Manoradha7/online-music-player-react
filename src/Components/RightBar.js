@@ -1,8 +1,16 @@
 import React from "react";
 // import "../Styles/RightBar.css";
-import { Avatar, Menu, MenuItem ,AppBar,  IconButton} from "@mui/material";
+import {
+  Avatar,
+  Menu,
+  MenuItem,
+  AppBar,
+  IconButton,
+  Typography,
+} from "@mui/material";
 // import profile from '../img/profile.png'
 import { useHistory } from "react-router-dom";
+import { SiYoutubemusic } from "react-icons/si";
 
 function RightBar() {
   const history = useHistory();
@@ -23,15 +31,24 @@ function RightBar() {
 
   return (
     <div className="rightBar">
-      <AppBar  sx={{
+      <AppBar
+        sx={{
           width: {
-            sm: `calc(100% - 178px)`,
-            xs: `calc(100% - 100px)`,
+            sm: `calc(100% )`,
+            xs: `calc(100% )`,
           },
-          ml: { sm: `178px`, xs: '100px' },
-          backgroundColor: "#7c8187fc",
-        }}>
-        <IconButton   sx={{marginLeft:"auto",paddingRight:"10px"}}>
+          ml: { sm: `100%`, xs: "100%" },
+          backgroundImage: 'linear-gradient(to right bottom, #051937, #19224b, #32295e, #4d2f6f, #6c337d)',
+        }}
+        className="appbar"
+      >
+        <div className="logo-container">
+          <i className="logo-icon">
+            <SiYoutubemusic />
+          </i>
+          <Typography className="text">SHASHA</Typography>
+          <div className='avatar' >
+          <IconButton sx={{ paddingRight: "10px" }}>
           <Avatar
             sx={{ bgcolor: "lightgrey" }}
             alt="username"
@@ -54,6 +71,9 @@ function RightBar() {
             <MenuItem onClick={() => Logout()}>Logout</MenuItem>
           </Menu>
         </IconButton>
+          </div>
+        </div>
+
         
       </AppBar>
     </div>

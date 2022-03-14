@@ -1,7 +1,7 @@
 import '../Styles/FavouriteSong.css';
-import 'react-h5-audio-player/lib/styles.css';
+import '../Styles/MusicPlayer.css';
 import { LeftBar } from "./LeftBar";
-import {Card} from '@mui/material'
+import { RightBar } from "./RightBar";
 import { API_URL } from "../globalConstanat.js";
 import {useState,useEffect} from 'react';
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -81,7 +81,7 @@ export function FavouriteSong() {
     };
   
     return(
-      <Card className="favSongContainer">
+      <div className="favSongContainer">
        <div className="favSongs-Container">
           {Songs &&
             Songs.map((songs, index) => (
@@ -129,11 +129,12 @@ export function FavouriteSong() {
       onPlay={e => console.log("onPlay")}
       className="audioplayer"
     /></div>
-      </Card>
+      </div>
     )
   }
   return (
     <div className="favourite">
+      <RightBar />
       <LeftBar />
       <FavSongsList />
   </div>

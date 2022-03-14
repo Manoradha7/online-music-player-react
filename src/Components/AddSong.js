@@ -47,7 +47,7 @@ function AddSongForm() {
     }).then(() => history.push("/dashboard"));
   };
   return (
-    <Card className="addsongContainer" sx={{backgroundColor:'rgb(223, 223, 223)'}}>
+    <Card className="addsongContainer" sx={{backgroundColor:'rgba(223, 223, 223,0)'}}>
       <div className="SongFormTitle">Song Detail</div>
       <form className="addSongForm" onSubmit={handleSubmit}>
         <TextField

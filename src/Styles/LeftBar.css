@@ -1,14 +1,15 @@
 .leftbar {
-  background-color: hsl(210deg 33% 98%);
+  background-color: rgba(209, 207, 209, 0.192);
   max-width: 245px;
   width: 175px;
-  height: 100%;
+  height: 100vh;
   backdrop-filter: blur(10px);
   overflow: hidden;
-  border-right: 1px solid hsl(228deg 24% 96%);
+  border-right: 1px solid rgb(172, 205, 241);
   transition: all 250ms cubic-bezier(0.175, 0.085, 0.32, 1.275);
   z-index: 1;
   border-top-width: 10px;
+  color:rgb(166, 252, 255)
   
 }
 .logo-container {
@@ -17,6 +18,9 @@
   gap: 4px;
   padding: 5px;
   overflow: hidden;
+}
+.avatar{
+  margin-left: auto;
 }
 .logo-container .logo-icon {
   font-size: 45px;
@@ -191,10 +195,10 @@
   .menuContainer ul li {
     position: relative;
     list-style: none;
-    margin: 0.5px 0;
+    margin: -7.5px 0;
     width: 100%;
     padding: 22px 0px;
-    font-size: 40px;
+    font-size: 24px;
   }
   .menuContainer {
     display: flex;

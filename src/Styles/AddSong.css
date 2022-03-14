@@ -4,7 +4,7 @@
 
 }
 .addsongContainer {
-  background-color: rgb(223, 223, 223);
+  background-color: rgba(223, 223, 223, 0);
   z-index: 1;
   flex-grow: 1;
   height: 100vh;
@@ -35,4 +35,5 @@
   text-align: center;
   padding-bottom: 20px;
   font-size: 20px;
+  color: rgb(167, 244, 247);
 }
