@@ -100,7 +100,9 @@
   padding-top: 45px;
 }
 .songs {
+  min-width: 200px;
   width: 200px;
+  min-height: 200px;
   height: 200px;
   border: 1px solid rgb(189, 189, 189);
   border-radius: 10px;
@@ -239,4 +241,16 @@
   .song .section .hits .hit {
     margin-right: 10px;
   }
+  .SongsContainer {
+    height: 100vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    gap: 18px;
+    padding: 0 10px;
+    padding-top: 45px;
+    justify-content: center;
+}
 }

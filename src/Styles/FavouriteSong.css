@@ -28,3 +28,18 @@
   background-color: rgba(240, 248, 255, 0);
   
 }
+@media (max-width:900px){
+  .favSongs-Container {
+    height: 85vh;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    gap: 18px;
+    padding: 12px 10px;
+    background-color: rgba(240, 248, 255, 0);
+    justify-content: center;
+}
+}
